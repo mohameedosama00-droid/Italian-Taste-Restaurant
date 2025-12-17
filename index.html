@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>Italian Taste Restaurant</title>
+      <link rel="icon" type="png" href="4714284.png" />
+      <link rel="stylesheet" href="HomeStyle.css" />
+    <script>
+      function gotofood() {
+        window.location.href = "Food.html";
+      }
+      function gotodrinks() {
+        window.location.href = "Drinks.html";
+      }
+      function gotoLocation() {
+        window.location.href = "Location.html";
+      }
+      function gotoReviews() {
+        window.location.href = "Reviews.html";
+      }
+      function gotomenu() {
+        window.location.href = "#menu";
+      }
+    
+    </script>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🍕 Italian Taste</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  
+  <div class="hero" id="home">
+    <h1>Taste Italy in Every Bite</h1>
+    <button onclick="gotomenu()">Order Now</button>
+  </div>
+
+ 
+  <section id="menu">
+    <h2 style="text-align:center; font-size:40px; color: #f2c14e;;">Our Menu</h2>
+    <div class="menu">
+      <div class="item" onclick="gotofood()">
+        <img src="menufood.jpg" width="100%%" style="border-radius:15px;" />
+        <h3>Food</h3>
+      </div>
+      <div class="item" onclick="gotodrinks()">
+        <img src="premium_photo-1725075086631-b21a5642918b.jpeg" width="100%" style="border-radius:15px;" />
+        <h3>Drinks</h3>
+      </div>
+    </div>
+  </section>
+
+ 
+  <section id="about">
+    <h2 style="text-align:center; font-size:40px; color: #f2c14e;">About Us</h2>
+    <div class="about-container">
+      <img src="chef-cooking-kitchen-while-wearing-professional-attire_23-2151208288.avif" />
+      <div>
+    <h3 style="color: white;">Our Story</h3>
+        <p style="color: white;">
+          Started in 2010, our restaurant brings authentic Italian flavors made with fresh ingredients,
+          handcrafted dough, and traditional recipes straight from Naples.
+        </p><br>
+        <h3 style="color: white;">Our Mission</h3>
+        <p style="color: white;">Deliver unforgettable food with passion and quality.</p>
+       <button onclick="gotoLocation()">Our Location</button>     <button onclick="gotoReviews()">Reviews</button>
+      </div>
+    </div>
+  </section>
+ 
+
+  <footer>
+    © 2025 Italian Taste Restaurant — All Rights Reserved
+  </footer>
+
+</body>
+</html>

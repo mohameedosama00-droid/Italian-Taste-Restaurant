@@ -1,0 +1,174 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    direction: rtl; 
+    text-align: right;
+    
+    /* === خصائص الخلفية الجديدة تبدأ هنا === */
+    background: url("photo1.jpg");/* استبدل بالاسم الصحيح لصورتك */
+    background-size: cover; /* لضمان أن تغطي الصورة كامل الشاشة دون تشوه */
+    background-repeat: no-repeat; /* لعدم تكرار الصورة */
+    background-attachment: fixed; /* لتثبيت الصورة أثناء التمرير */
+    background-color: #f4f4f9; /* لون احتياطي في حال عدم تحميل الصورة */
+    /* === خصائص الخلفية الجديدة تنتهي هنا === */
+}
+
+/* ملاحظة مهمة: يجب تعديل تنسيق العنصر .container */
+/* لجعله شفافًا قليلاً إذا أردت رؤية الخلفية من خلاله. */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* بدلاً من لون أبيض صلب، استخدم rgba للشفافية */
+    background: rgba(255, 255, 255, 0.95); /* 0.95 تعني شفافية 5% */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* قد تحتاج لتعديل ألوان النصوص أو الأزرار لتكون واضحة فوق صورة الخلفية */
+
+h1 {
+    text-align: center;
+    color: #e91e63; /* لون عصري */
+    margin-bottom: 40px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.menu-sections {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.menu-item {
+    flex: 1;
+    min-width: 300px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.menu-item h2 {
+    color: #00bcd4;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+thead th {
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #fffde7;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    /*transition: background-color 0.3s;*/
+    transition:0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* قسم سلة الطلبات */
+.order-summary {
+    background-color: #ffe0b2; /* لون برتقالي فاتح */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.order-summary h3 {
+    color: #ff9800;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+#order-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+#order-list li {
+    padding: 8px 0;
+    border-bottom: 1px dotted #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#order-list li:last-child {
+    border-bottom: none;
+}
+
+.remove-btn {
+    background-color: #f44336;
+    padding: 4px 8px;
+    font-size: 12px;
+}
+
+.remove-btn:hover {
+    background-color: #d32f2f;
+}
+
+.order-summary p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #e91e63;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#total-price {
+    color: #ff5722;
+    font-size: 1.2em;
+    margin-right: 5px;
+}
+
+.clear-btn {
+    display: block;
+    width: 100%;
+    background-color: #795548;
+}
+.clear-btn:hover {
+    background-color: #5d4037;
+}
