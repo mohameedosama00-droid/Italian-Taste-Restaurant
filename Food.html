@@ -1,193 +1,1 @@
-<html>
-<head>
-    
-    <title>Menu - Food List</title>
-    <link rel="icon" type="png" href="4714284.png">
-    <link rel="stylesheet" href="Foodstyle.css" >
 
-    <script> 
-    
-    let totalPrice = 0;
-
-// دالة لحساب وعرض الإجمالي
-function updateDisplay() {
-    // عرض الإجمالي في العنصر المخصص له
-    document.getElementById('total-price').textContent = totalPrice.toFixed(2);
-}
-
-// دالة لإضافة وجبة للطلب
-function addItem(buttonElement) {
-    // الوصول إلى عنصر السطر (<tr>) الأب للزر
-    const row = buttonElement.closest('tr');
-    
-    // استخراج اسم الوجبة والسعر من خصائص البيانات (data-*) في سطر الجدول
-    const itemName = row.getAttribute('data-item');
-    // تحويل السعر من نص إلى رقم
-    const itemPrice = parseFloat(row.getAttribute('data-price'));
-
-    // 1. تحديث الإجمالي
-    totalPrice += itemPrice;
-    updateDisplay();
-
-    // 2. إضافة الوجبة لقائمة الطلبات (سلة الطلبات)
-    const orderList = document.getElementById('order-list');
-    
-    // إنشاء عنصر قائمة جديد (<li>)
-    const listItem = document.createElement('li');
-    // إضافة المحتوى (الاسم والسعر)
-    listItem.innerHTML = `${itemName} - ${itemPrice.toFixed(2)} جم 
-                          <button class="remove-btn" onclick="removeItem(this, ${itemPrice})">Remove</button>`;
-
-    // وضع السعر في خاصية بيانات لسهولة الإزالة
-    listItem.setAttribute('data-price', itemPrice);
-    
-    // إضافة العنصر لقائمة الطلبات
-    orderList.appendChild(listItem);
-}
-
-// دالة لإزالة وجبة من الطلب
-function removeItem(buttonElement, price) {
-    // الوصول لعنصر القائمة (<li>) الأب للزر
-    const listItem = buttonElement.closest('li');
-    
-    // 1. تحديث الإجمالي (طرح السعر)
-    totalPrice -= price;
-    // التأكد من أن الإجمالي لا يصبح أقل من صفر
-    if (totalPrice < 0) {
-        totalPrice = 0;
-    }
-    updateDisplay();
-    
-    // 2. إزالة العنصر من القائمة
-    listItem.remove();
-}
-
-// دالة لإفراغ السلة بالكامل
-function clearOrder() {
-    // تصفير الإجمالي
-    totalPrice = 0;
-    updateDisplay();
-    
-    // إزالة جميع العناصر من قائمة الطلبات
-    document.getElementById('order-list').innerHTML = '';
-    alert('The basket has been cleaned.');
-}
-
-// تهيئة الإجمالي عند تحميل الصفحة
-updateDisplay();
-function succ(){
-    n = prompt("Enter Your Name:");
-    a = prompt("Enter Your Address:");
-    s = alert("The order was placed successfully.");
-}
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h1>🍕 menu 🍔</h1>
-        
-        <div class="menu-sections">
-            <div class="menu-item" id="pizza-section">
-                <h2>Pizza 🍕</h2>
-                <table>
-                    <thead>
-                        <tr>
-                               <th>size</th>
-                            <th>price</th>
-                            <th>add order</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr data-item="Pizza s" data-price="100">
-                            <td>small</td>
-                            <td class="price">100</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                        <tr data-item="Pizza m" data-price="150">
-                            <td>meduim</td>
-                            <td class="price">150</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                        <tr data-item="Pizza L" data-price="200">
-                            <td>large</td>
-                            <td class="price">200</td>
-                           <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="menu-item" id="pasta-section">
-                <h2>Pasta 🍝</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>size</th>
-                            <th>price</th>
-                            <th>add order</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr data-item="Pasta s" data-price="100">
-                            <td>small</td>
-                            <td class="price">100</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                        <tr data-item="Pasta m" data-price="150">
-                            <td>medium</td>
-                            <td class="price">150</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                        <tr data-item="Pasta L" data-price="200">
-                            <td>large</td>
-                            <td class="price">200</td>
-                            <td><button onclick="addItem(this)">large</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="menu-item" id="burger-section">
-                <h2>Berger 🍔</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>size</th>
-                            <th>price</th>
-                            <th>add order</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr data-item="Berger s" data-price="100">
-                            <td>small</td>
-                            <td class="price">100</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                        <tr data-item="Berger m" data-price="150">
-                            <td>medium</td>
-                            <td class="price">150</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                        <tr data-item="Berger" data-price="200">
-                            <td>large</td>
-                            <td class="price">200</td>
-                            <td><button onclick="addItem(this)">add</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-        </div>
-        
-        <div class="order-summary">
-            <h3>Orders</h3>
-            <ul id="order-list">
-                </ul>
-            <p>total: <span id="total-price">0</span>Egp</p>
-            <button onclick="clearOrder()" class="clear-btn">clean basket</button>
-            <button onclick="succ()" class="clear-btn">Order</button>
-        </div>
-    </div>
-    
-</body>
-</html>
